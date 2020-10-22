@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ErrorComponent from "@/components/UI/ErrorComponent";
+import ErrorComponent from "@/components/common/UI/ErrorComponent";
 
 export default {
   name: "NotFound",

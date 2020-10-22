@@ -13,8 +13,7 @@ import Dialog from "@/views/Dialog";
 import NotFound from "@/views/NotFound";
 import MainLayout from "@/layouts/MainLayout";
 import AuthLayout from "@/layouts/AuthLayout";
-import store from '../store'
-
+const authRoutes = ['/login', '/registration', '/recovery', '/reset',]
 Vue.use(VueRouter);
 
 const routes = [
@@ -101,9 +100,12 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = store.state.isAuthenticated;
-  next();
-
+  const isAuthenticated = localStorage.getItem('_token');
+  if (isAuthenticated || authRoutes.indexOf(to.path) !== -1) {
+    next();
+  } else {
+    next({name: 'Login'});
+  }
 });
 
 export default router;

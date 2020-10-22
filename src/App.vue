@@ -5,10 +5,30 @@
 </template>
 
 <script>
-import Header from "@/components/InterfaceComponents/Header";
-import Footer from "@/components/InterfaceComponents/Footer";
+import Header from "@/components/common/InterfaceComponents/Header";
+import Footer from "@/components/common/InterfaceComponents/Footer";
+import { createNamespacedHelpers } from 'vuex';
+import { LOG_IN } from '@/store/modules/auth/actions';
+import { SET_LOADING } from '@/store/modules/auth/mutations';
+const { mapActions, mapMutations } = createNamespacedHelpers('auth');
+
 export default {
-  components: {Footer, Header}
+  components: {Footer, Header},
+    methods: {
+      ...mapActions({
+        logIn: LOG_IN,
+      }),
+      ...mapMutations({
+        setLoading: SET_LOADING,
+      }),
+  },
+  mounted() {
+    if (localStorage.getItem('_token')) {
+      this.logIn();
+    } else {
+      this.setLoading(false);
+    }
+  }
 }
 </script>
 
@@ -35,7 +55,7 @@ a {
 }
 
 .btn:focus, textarea:focus {
-  outline: none;
-  box-shadow: none;
+  outline: none!important;
+  box-shadow: none!important;
 }
 </style>

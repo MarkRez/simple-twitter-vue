@@ -31,8 +31,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "~@/styles/colors";
-@import '~@/styles/anotherConstants';
+@import "~@/styles/_colors.scss";
+@import '~@/styles/_anotherConstants.scss';
 
 a {
   font-family: $font-fredoka;

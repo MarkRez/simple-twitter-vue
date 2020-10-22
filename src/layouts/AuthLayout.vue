@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header :isAuthenticated="false" />
-    <Layout :isAuthenticated="false" >
+    <Header />
+    <Layout>
       <router-view/>
     </Layout>
     <Footer />
@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Footer from "@/components/InterfaceComponents/Footer";
-import Header from "@/components/InterfaceComponents/Header";
-import Layout from "@/components/InterfaceComponents/Layout";
+import Footer from "@/components/common/InterfaceComponents/Footer";
+import Header from "@/components/common/InterfaceComponents/Header";
+import Layout from "@/components/common/InterfaceComponents/Layout";
 export default {
 name: "AuthLayout",
   components: {Layout, Header ,Footer}

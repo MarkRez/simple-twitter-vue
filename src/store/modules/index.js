@@ -1,5 +1,9 @@
-import links from './links'
+import links from './links';
+import auth from './auth';
+import profile from './profile'
 
 export default {
-  links
+  links,
+  auth,
+  profile
 }
